@@ -180,7 +180,7 @@ void DotsPlayer::play() {
 		}
 
 
-		if (36 <= dots.size() < 38) {
+		if (dots.size() >= 36 && dots.size() <= 40) {
 			if (board->validateBoard(dots)) {
 				std::cout << "Board is valid!" << std::endl;
 				DotMove* best_move = board->getMoves();
