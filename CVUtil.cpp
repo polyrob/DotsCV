@@ -83,3 +83,16 @@ void CVUtil::drawObject(cv::Point point, std::string text, cv::Mat &frame) {
 	//	cv::putText(frame, jewels.at(i).getColor(), cv::Point(jewels.at(i).getXPos(), jewels.at(i).getYPos() + 20), 1, 1, Scalar(255, 255, 255));
 	//}
 }
+
+
+void CannyThreshold(cv::Mat src, cv::Mat detected_edges, int lowThreshold)
+{
+	/// Reduce noise with a kernel 3x3
+	cv::blur(src, detected_edges, cv::Size(3, 3));
+
+	/// Canny detector
+	cv::Canny(detected_edges, detected_edges, lowThreshold, lowThreshold*3, CANNY_KERNEL);
+
+	/// Using Canny's output as a mask, we display our result
+	src = cv::Scalar::all(0);
+}

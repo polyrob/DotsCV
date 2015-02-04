@@ -12,6 +12,15 @@ DotBoard::~DotBoard()
 
 
 bool DotBoard::validateBoard(std::vector<Dot*> dots) {
+	///* sort all in x then look for outliers to remove */
+	//std::sort(dots.begin(), dots.end(), xSort);
+
+	//std::vector<Dot*> first_five(dots.begin(), dots.begin()+5);
+
+	//if (dots.at(1)->getXPos() - dots.at(0)->getXPos() > MAX_POS_VARIANCE) {
+	//	dots.erase(dots.begin());
+	//}
+
 	std::sort(dots.begin(), dots.end(), ySort);
 
 	for (int y = 0; y < 6; y++) {
@@ -163,7 +172,7 @@ DotMove* DotBoard::getMoves() {
 
 	if (moves.size() > 0) {
 		int maxPayAmt = 0;
-		
+
 		for (DotMove* move : moves) {
 			if (move->getTotalPoints() > maxPayAmt) {
 				maxPayAmt = move->getTotalPoints();
@@ -222,7 +231,7 @@ void DotBoard::drawBestMove(DotMove* move, cv::Mat &frame) {
 	std::vector<cv::Point> moves = move->getMoves();
 
 	for (int i = 1; i < moves.size(); i++) {
-		cv::Point p1 = moves.at(i-1);
+		cv::Point p1 = moves.at(i - 1);
 		cv::Point p2 = moves.at(i);
 		Dot d1 = table[p1.y][p1.x];
 		Dot d2 = table[p2.y][p2.x];

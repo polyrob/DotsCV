@@ -1,7 +1,7 @@
 #pragma once
 #include "Dot.h"
 #include "DotMove.h"
-#include <time.h>
+#include "Constants.h"
 class DotBoard
 {
 public:

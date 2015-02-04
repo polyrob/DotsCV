@@ -17,6 +17,11 @@ static const int MIN_OBJECT_AREA = 10 * 10;
 static const int ERODE_SIZE = 3;
 static const int DIALATE_SIZE = 8;
 
+static const int CANNY_KERNEL = 3;
+static const int MAX_LOW_THRESHOLD = 100;
+
+static const int MAX_POS_VARIANCE = 20;
+
 static const std::string DOTS_WINDOW = "Dots Window";
 static const std::string THRESH_WINDOW = "Threashold";
 //static const std::string windowName = "Original Image";
